@@ -59,7 +59,7 @@ MODEL_INFO = {
         "endpoint": aws_endpoint,
         "explainer": 'explainer.shap',
         "pipeline": 'finalized_model.tar.gz',
-        "keys": ["AAPL", "INTL", "AMD", "AMZN", "PLT", "DEXJPUS", "DEXUSUK", "SP500", "DJIA", "VIXCLS"],
+        "keys": ["AAPL", "INTL", "AMD", "AMZN", "PLTR", "DEXJPUS", "DEXUSUK", "SP500", "DJIA", "VIXCLS"],
         "inputs": [{"name": k, "type": "number", "min": -1.0, "max": 1.0, "default": 0.0, "step": 0.01} for k in ["GOOGL", "IBM", "DEXJPUS", "DEXUSUK", "SP500", "DJIA", "VIXCLS"]]
 }
 
@@ -151,6 +151,7 @@ if submitted:
         display_explanation(input_df,session, aws_bucket)
     else:
         st.error(res)
+
 
 
 
