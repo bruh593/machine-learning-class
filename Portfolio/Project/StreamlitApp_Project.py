@@ -9,7 +9,7 @@ import numpy as np
 import joblib
 import shap
 import matplotlib.pyplot as plt
-
+import os
 # ============================================================
 # Page setup
 # ============================================================
@@ -32,8 +32,9 @@ st.markdown("---")
 # ============================================================
 @st.cache_resource
 def load_artifacts():
-    pipeline = joblib.load("best_xgb_pipeline.pkl")
-    explainer = joblib.load("shap_explainer.pkl")
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    pipeline = joblib.load(os.path.join(base_dir, "best_xgb_pipeline.pkl"))
+    explainer = joblib.load(os.path.join(base_dir, "shap_explainer.pkl"))
     return pipeline, explainer
 
 with st.spinner("Loading model..."):
